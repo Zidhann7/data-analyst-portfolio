@@ -466,6 +466,26 @@
   @media(max-width:1000px){.toolkit-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
   @media(max-width:640px){.toolkit-grid{grid-template-columns:1fr;gap:16px;}.toolkit-grid .tool-card.tk{padding:20px 18px 22px;border-radius:24px;}.tk-tile{width:78px;}}
   @media(prefers-reduced-motion:reduce){.section.in .tk-tile{animation:none;}.approach-step:hover .ap-ico,.approach-step:hover .ap-ico svg,.tk-tile:hover .tk-ico{transform:none;}}
+
+  /* ===== Touch (phone) animations: finger glow, tap ripple, scroll progress ===== */
+  .touch-glow,.touch-ripple{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;}
+  .touch-glow{width:170px;height:170px;margin:-85px 0 0 -85px;z-index:399;opacity:0;transition:opacity .35s ease;will-change:transform,opacity;
+    background:radial-gradient(circle,rgba(80,115,255,.30),rgba(80,115,255,.10) 48%,transparent 72%);}
+  .touch-glow.on{opacity:1;}
+  .touch-ripple{width:150px;height:150px;margin:-75px 0 0 -75px;z-index:400;transform:scale(.25);opacity:.9;
+    background:radial-gradient(circle,rgba(80,115,255,.38),rgba(80,115,255,.14) 45%,transparent 70%);animation:touchRipple .75s cubic-bezier(.22,1,.36,1) forwards;}
+  @keyframes touchRipple{to{transform:scale(1.7);opacity:0;}}
+  .scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:500;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,#4B54C9,#6488E8,#9270D8);box-shadow:0 0 10px rgba(81,89,217,.5);}
+  .fx.touch-on{translate:0 -3px;border-color:rgba(75,84,201,.4);box-shadow:0 18px 40px rgba(41,57,255,.16);}
+  .fx.touch-on::after{opacity:1;}
+  .fx.touch-on::before{opacity:1;animation:fxSweep 1s ease forwards;}
+  .pcard.in.touch-on{transform:translateY(-4px);border-color:rgba(75,84,201,.45);box-shadow:0 20px 44px rgba(41,57,255,.18);}
+  .pcard.touch-on::after{opacity:1;}
+  .pcard.touch-on::before{opacity:1;animation:cardSweep 1s ease forwards;}
+  .approach-step.touch-on,.tk-tile.touch-on .tk-ico{border-color:rgba(75,84,201,.4);box-shadow:0 16px 34px rgba(41,57,255,.16);}
+  .tk-tile.touch-on .tk-ico{transform:translateY(-4px) scale(1.06);}
+  @media(prefers-reduced-motion:reduce){.touch-glow,.touch-ripple,.scroll-progress{display:none;}}
 </style>
 <noscript><style>
   .reveal,.about-merge [data-reveal]{opacity:1!important;transform:none!important;}
@@ -1505,6 +1525,74 @@ const ambientConfig = {
     });
     el.addEventListener('pointerleave',function(){el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg');});
   });
+})();
+</script>
+
+<script>
+/* ===== Phone / touch animations =====
+   When a finger touches or drags (scrolls) on a touchscreen: a soft blue glow follows the finger,
+   a ripple pops where it lands, boxes under the finger light up, and a thin bar shows scroll progress. */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var touchDevice=('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+  if(reduce||!touchDevice)return;
+
+  var glow=document.createElement('div');glow.className='touch-glow';glow.setAttribute('aria-hidden','true');
+  var bar=document.createElement('div');bar.className='scroll-progress';bar.setAttribute('aria-hidden','true');
+  document.body.appendChild(glow);document.body.appendChild(bar);
+
+  var tx=0,ty=0,ticking=false,active=null,hideT=0;
+  var SEL='.fx,.pcard,.approach-step,.tk-tile';
+
+  function setActive(el){
+    if(active===el)return;
+    if(active)active.classList.remove('touch-on');
+    active=el;if(active)active.classList.add('touch-on');
+  }
+  function frame(){
+    ticking=false;
+    glow.style.transform='translate3d('+tx+'px,'+ty+'px,0)';
+    if(active){var r=active.getBoundingClientRect();active.style.setProperty('--mx',(tx-r.left)+'px');active.style.setProperty('--my',(ty-r.top)+'px');}
+  }
+  function track(e){
+    var t=e.touches&&e.touches[0];if(!t)return;
+    tx=t.clientX;ty=t.clientY;
+    if(!ticking){ticking=true;requestAnimationFrame(frame);}
+  }
+  document.addEventListener('touchstart',function(e){
+    track(e);
+    clearTimeout(hideT);
+    glow.classList.add('on');
+    var rp=document.createElement('div');rp.className='touch-ripple';
+    rp.style.left=tx+'px';rp.style.top=ty+'px';
+    document.body.appendChild(rp);
+    rp.addEventListener('animationend',function(){rp.remove();});
+    setActive(e.target.closest?e.target.closest(SEL):null);
+    frame();
+  },{passive:true});
+  document.addEventListener('touchmove',function(e){
+    track(e);
+    var t=e.touches[0],el=document.elementFromPoint(t.clientX,t.clientY);
+    setActive(el&&el.closest?el.closest(SEL):null);
+  },{passive:true});
+  function end(){
+    glow.classList.remove('on');
+    clearTimeout(hideT);
+    hideT=setTimeout(function(){setActive(null);},350);
+  }
+  document.addEventListener('touchend',end,{passive:true});
+  document.addEventListener('touchcancel',end,{passive:true});
+
+  // scroll progress bar
+  var sTick=false;
+  function prog(){
+    sTick=false;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.transform='scaleX('+(h>0?Math.min(1,Math.max(0,window.scrollY/h)):0).toFixed(4)+')';
+  }
+  window.addEventListener('scroll',function(){if(!sTick){sTick=true;requestAnimationFrame(prog);}},{passive:true});
+  window.addEventListener('resize',prog);
+  prog();
 })();
 </script>
 </body>
