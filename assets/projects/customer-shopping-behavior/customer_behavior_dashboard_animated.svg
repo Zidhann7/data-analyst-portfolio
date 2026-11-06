@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="992" height="538" viewBox="0 0 992 538" role="img" aria-label="Customer Behavior Dashboard (animated)">
+<style>
+text{font-family:'Segoe UI','Helvetica Neue',Arial,'DejaVu Sans',sans-serif}
+@keyframes dsh{0%{opacity:0}2.5%{opacity:1}88%{opacity:1}93.5%{opacity:0}100%{opacity:0}}
+.dash{animation:dsh 12s linear infinite;}
+@keyframes cd0{0%,0.70%{opacity:0;transform:translateY(9px)}3.10%,100%{opacity:1;transform:translateY(0)}}
+.cd0{animation:cd0 12s linear infinite;}
+@keyframes cd1{0%,1.25%{opacity:0;transform:translateY(9px)}3.65%,100%{opacity:1;transform:translateY(0)}}
+.cd1{animation:cd1 12s linear infinite;}
+@keyframes cd2{0%,1.80%{opacity:0;transform:translateY(9px)}4.20%,100%{opacity:1;transform:translateY(0)}}
+.cd2{animation:cd2 12s linear infinite;}
+@keyframes cc0{0%,1.20%{opacity:0;transform:translateY(8px)}3.60%,100%{opacity:1;transform:translateY(0)}}
+.cc0{animation:cc0 12s linear infinite;}
+@keyframes cc1{0%,1.70%{opacity:0;transform:translateY(8px)}4.10%,100%{opacity:1;transform:translateY(0)}}
+.cc1{animation:cc1 12s linear infinite;}
+@keyframes cc2{0%,2.20%{opacity:0;transform:translateY(8px)}4.60%,100%{opacity:1;transform:translateY(0)}}
+.cc2{animation:cc2 12s linear infinite;}
+@keyframes cc3{0%,2.70%{opacity:0;transform:translateY(8px)}5.10%,100%{opacity:1;transform:translateY(0)}}
+.cc3{animation:cc3 12s linear infinite;}
+@keyframes cc4{0%,3.20%{opacity:0;transform:translateY(8px)}5.60%,100%{opacity:1;transform:translateY(0)}}
+.cc4{animation:cc4 12s linear infinite;}
+@keyframes sg0{0%,2.40%{opacity:0;transform:translateX(-7px)}4.20%,100%{opacity:1;transform:translateX(0)}}
+.sg0{animation:sg0 12s linear infinite;}
+@keyframes sg1{0%,3.10%{opacity:0;transform:translateX(-7px)}4.90%,100%{opacity:1;transform:translateX(0)}}
+.sg1{animation:sg1 12s linear infinite;}
+@keyframes sg2{0%,3.80%{opacity:0;transform:translateX(-7px)}5.60%,100%{opacity:1;transform:translateX(0)}}
+.sg2{animation:sg2 12s linear infinite;}
+@keyframes sg3{0%,4.50%{opacity:0;transform:translateX(-7px)}6.30%,100%{opacity:1;transform:translateX(0)}}
+.sg3{animation:sg3 12s linear infinite;}
+@keyframes cntA_0{0%,4.00%{opacity:0}4.12%{opacity:1}6.29%{opacity:1}6.41%,100%{opacity:0}}
+.cntA_0{animation:cntA_0 12s linear infinite;}
+@keyframes cntA_1{0%,6.29%{opacity:0}6.41%{opacity:1}8.57%{opacity:1}8.69%,100%{opacity:0}}
+.cntA_1{animation:cntA_1 12s linear infinite;}
+@keyframes cntA_2{0%,8.57%{opacity:0}8.69%{opacity:1}10.86%{opacity:1}10.98%,100%{opacity:0}}
+.cntA_2{animation:cntA_2 12s linear infinite;}
+@keyframes cntA_3{0%,10.86%{opacity:0}10.98%{opacity:1}13.14%{opacity:1}13.26%,100%{opacity:0}}
+.cntA_3{animation:cntA_3 12s linear infinite;}
+@keyframes cntA_4{0%,13.14%{opacity:0}13.26%{opacity:1}15.43%{opacity:1}15.55%,100%{opacity:0}}
+.cntA_4{animation:cntA_4 12s linear infinite;}
+@keyframes cntA_5{0%,15.43%{opacity:0}15.55%{opacity:1}17.71%{opacity:1}17.83%,100%{opacity:0}}
+.cntA_5{animation:cntA_5 12s linear infinite;}
+@keyframes cntA_6{0%,17.71%{opacity:0}17.83%{opacity:1}20.00%{opacity:1}20.12%,100%{opacity:0}}
+.cntA_6{animation:cntA_6 12s linear infinite;}
+@keyframes cntA_7{0%,20.00%{opacity:0}20.12%,100%{opacity:1}}
+.cntA_7{animation:cntA_7 12s linear infinite;}
+@keyframes cntB_0{0%,4.00%{opacity:0}4.12%{opacity:1}6.00%{opacity:1}6.12%,100%{opacity:0}}
+.cntB_0{animation:cntB_0 12s linear infinite;}
+@keyframes cntB_1{0%,6.00%{opacity:0}6.12%{opacity:1}8.00%{opacity:1}8.12%,100%{opacity:0}}
+.cntB_1{animation:cntB_1 12s linear infinite;}
+@keyframes cntB_2{0%,8.00%{opacity:0}8.12%{opacity:1}10.00%{opacity:1}10.12%,100%{opacity:0}}
+.cntB_2{animation:cntB_2 12s linear infinite;}
+@keyframes cntB_3{0%,10.00%{opacity:0}10.12%{opacity:1}12.00%{opacity:1}12.12%,100%{opacity:0}}
+.cntB_3{animation:cntB_3 12s linear infinite;}
+@keyframes cntB_4{0%,12.00%{opacity:0}12.12%{opacity:1}14.00%{opacity:1}14.12%,100%{opacity:0}}
+.cntB_4{animation:cntB_4 12s linear infinite;}
+@keyframes cntB_5{0%,14.00%{opacity:0}14.12%{opacity:1}16.00%{opacity:1}16.12%,100%{opacity:0}}
+.cntB_5{animation:cntB_5 12s linear infinite;}
+@keyframes cntB_6{0%,16.00%{opacity:0}16.12%{opacity:1}18.00%{opacity:1}18.12%,100%{opacity:0}}
+.cntB_6{animation:cntB_6 12s linear infinite;}
+@keyframes cntB_7{0%,18.00%{opacity:0}18.12%{opacity:1}20.00%{opacity:1}20.12%,100%{opacity:0}}
+.cntB_7{animation:cntB_7 12s linear infinite;}
+@keyframes cntB_8{0%,20.00%{opacity:0}20.12%{opacity:1}22.00%{opacity:1}22.12%,100%{opacity:0}}
+.cntB_8{animation:cntB_8 12s linear infinite;}
+@keyframes cntB_9{0%,22.00%{opacity:0}22.12%,100%{opacity:1}}
+.cntB_9{animation:cntB_9 12s linear infinite;}
+@keyframes cntC_0{0%,4.00%{opacity:0}4.12%{opacity:1}6.00%{opacity:1}6.12%,100%{opacity:0}}
+.cntC_0{animation:cntC_0 12s linear infinite;}
+@keyframes cntC_1{0%,6.00%{opacity:0}6.12%{opacity:1}8.00%{opacity:1}8.12%,100%{opacity:0}}
+.cntC_1{animation:cntC_1 12s linear infinite;}
+@keyframes cntC_2{0%,8.00%{opacity:0}8.12%{opacity:1}10.00%{opacity:1}10.12%,100%{opacity:0}}
+.cntC_2{animation:cntC_2 12s linear infinite;}
+@keyframes cntC_3{0%,10.00%{opacity:0}10.12%{opacity:1}12.00%{opacity:1}12.12%,100%{opacity:0}}
+.cntC_3{animation:cntC_3 12s linear infinite;}
+@keyframes cntC_4{0%,12.00%{opacity:0}12.12%{opacity:1}14.00%{opacity:1}14.12%,100%{opacity:0}}
+.cntC_4{animation:cntC_4 12s linear infinite;}
+@keyframes cntC_5{0%,14.00%{opacity:0}14.12%{opacity:1}16.00%{opacity:1}16.12%,100%{opacity:0}}
+.cntC_5{animation:cntC_5 12s linear infinite;}
+@keyframes cntC_6{0%,16.00%{opacity:0}16.12%{opacity:1}18.00%{opacity:1}18.12%,100%{opacity:0}}
+.cntC_6{animation:cntC_6 12s linear infinite;}
+@keyframes cntC_7{0%,18.00%{opacity:0}18.12%{opacity:1}20.00%{opacity:1}20.12%,100%{opacity:0}}
+.cntC_7{animation:cntC_7 12s linear infinite;}
+@keyframes cntC_8{0%,20.00%{opacity:0}20.12%{opacity:1}22.00%{opacity:1}22.12%,100%{opacity:0}}
+.cntC_8{animation:cntC_8 12s linear infinite;}
+@keyframes cntC_9{0%,22.00%{opacity:0}22.12%,100%{opacity:1}}
+.cntC_9{animation:cntC_9 12s linear infinite;}
+.gbv{transform-box:fill-box;transform-origin:50% 100%}
+.gbh{transform-box:fill-box;transform-origin:0% 50%}
+@keyframes rv0{0%,13.00%{transform:scaleY(0)}18.00%,100%{transform:scaleY(1)}}
+.rv0{animation:rv0 12s linear infinite;}
+@keyframes rvl0{0%,16.00%{opacity:0}17.20%,100%{opacity:1}}
+.rvl0{animation:rvl0 12s linear infinite;}
+@keyframes rv1{0%,14.70%{transform:scaleY(0)}19.70%,100%{transform:scaleY(1)}}
+.rv1{animation:rv1 12s linear infinite;}
+@keyframes rvl1{0%,17.70%{opacity:0}18.90%,100%{opacity:1}}
+.rvl1{animation:rvl1 12s linear infinite;}
+@keyframes rv2{0%,16.40%{transform:scaleY(0)}21.40%,100%{transform:scaleY(1)}}
+.rv2{animation:rv2 12s linear infinite;}
+@keyframes rvl2{0%,19.40%{opacity:0}20.60%,100%{opacity:1}}
+.rvl2{animation:rvl2 12s linear infinite;}
+@keyframes rv3{0%,18.10%{transform:scaleY(0)}23.10%,100%{transform:scaleY(1)}}
+.rv3{animation:rv3 12s linear infinite;}
+@keyframes rvl3{0%,21.10%{opacity:0}22.30%,100%{opacity:1}}
+.rvl3{animation:rvl3 12s linear infinite;}
+@keyframes sv0{0%,15.00%{transform:scaleY(0)}20.00%,100%{transform:scaleY(1)}}
+.sv0{animation:sv0 12s linear infinite;}
+@keyframes svl0{0%,18.00%{opacity:0}19.20%,100%{opacity:1}}
+.svl0{animation:svl0 12s linear infinite;}
+@keyframes sv1{0%,16.70%{transform:scaleY(0)}21.70%,100%{transform:scaleY(1)}}
+.sv1{animation:sv1 12s linear infinite;}
+@keyframes svl1{0%,19.70%{opacity:0}20.90%,100%{opacity:1}}
+.svl1{animation:svl1 12s linear infinite;}
+@keyframes sv2{0%,18.40%{transform:scaleY(0)}23.40%,100%{transform:scaleY(1)}}
+.sv2{animation:sv2 12s linear infinite;}
+@keyframes svl2{0%,21.40%{opacity:0}22.60%,100%{opacity:1}}
+.svl2{animation:svl2 12s linear infinite;}
+@keyframes sv3{0%,20.10%{transform:scaleY(0)}25.10%,100%{transform:scaleY(1)}}
+.sv3{animation:sv3 12s linear infinite;}
+@keyframes svl3{0%,23.10%{opacity:0}24.30%,100%{opacity:1}}
+.svl3{animation:svl3 12s linear infinite;}
+@keyframes rh0{0%,18.00%{transform:scaleX(0)}23.00%,100%{transform:scaleX(1)}}
+.rh0{animation:rh0 12s linear infinite;}
+@keyframes rhl0{0%,21.00%{opacity:0}22.20%,100%{opacity:1}}
+.rhl0{animation:rhl0 12s linear infinite;}
+@keyframes rh1{0%,19.70%{transform:scaleX(0)}24.70%,100%{transform:scaleX(1)}}
+.rh1{animation:rh1 12s linear infinite;}
+@keyframes rhl1{0%,22.70%{opacity:0}23.90%,100%{opacity:1}}
+.rhl1{animation:rhl1 12s linear infinite;}
+@keyframes rh2{0%,21.40%{transform:scaleX(0)}26.40%,100%{transform:scaleX(1)}}
+.rh2{animation:rh2 12s linear infinite;}
+@keyframes rhl2{0%,24.40%{opacity:0}25.60%,100%{opacity:1}}
+.rhl2{animation:rhl2 12s linear infinite;}
+@keyframes rh3{0%,23.10%{transform:scaleX(0)}28.10%,100%{transform:scaleX(1)}}
+.rh3{animation:rh3 12s linear infinite;}
+@keyframes rhl3{0%,26.10%{opacity:0}27.30%,100%{opacity:1}}
+.rhl3{animation:rhl3 12s linear infinite;}
+@keyframes sh0{0%,20.00%{transform:scaleX(0)}25.00%,100%{transform:scaleX(1)}}
+.sh0{animation:sh0 12s linear infinite;}
+@keyframes shl0{0%,23.00%{opacity:0}24.20%,100%{opacity:1}}
+.shl0{animation:shl0 12s linear infinite;}
+@keyframes sh1{0%,21.70%{transform:scaleX(0)}26.70%,100%{transform:scaleX(1)}}
+.sh1{animation:sh1 12s linear infinite;}
+@keyframes shl1{0%,24.70%{opacity:0}25.90%,100%{opacity:1}}
+.shl1{animation:shl1 12s linear infinite;}
+@keyframes sh2{0%,23.40%{transform:scaleX(0)}28.40%,100%{transform:scaleX(1)}}
+.sh2{animation:sh2 12s linear infinite;}
+@keyframes shl2{0%,26.40%{opacity:0}27.60%,100%{opacity:1}}
+.shl2{animation:shl2 12s linear infinite;}
+@keyframes sh3{0%,25.10%{transform:scaleX(0)}30.10%,100%{transform:scaleX(1)}}
+.sh3{animation:sh3 12s linear infinite;}
+@keyframes shl3{0%,28.10%{opacity:0}29.30%,100%{opacity:1}}
+.shl3{animation:shl3 12s linear infinite;}
+.arcF{stroke-dasharray:100;animation:dF 12s linear infinite}
+@keyframes dF{0%,10%{stroke-dashoffset:100}19%,100%{stroke-dashoffset:0}}
+.arcM{stroke-dasharray:100;animation:dM 12s linear infinite}
+@keyframes dM{0%,19%{stroke-dashoffset:100}24%,100%{stroke-dashoffset:0}}
+.dlab{animation:dlab 12s linear infinite;}
+@keyframes dlab{0%,24%{opacity:0}28%,100%{opacity:1}}
+.spop{transform-box:fill-box;transform-origin:50% 50%;animation:spop 12s linear infinite, spn 0.9s linear infinite}
+@keyframes spop{0%{opacity:1}2.2%{opacity:1}3%{opacity:0}92.5%{opacity:0}93.5%{opacity:1}100%{opacity:1}}
+@keyframes spn{to{transform:rotate(360deg)}}
+</style>
+<defs>
+<linearGradient id="frameg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#F45AA6"/><stop offset="1" stop-color="#CE158D"/>
+</linearGradient>
+<linearGradient id="bandg" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#E02AA0"/><stop offset="1" stop-color="#BE1280"/>
+</linearGradient>
+<filter id="ds" x="-20%" y="-20%" width="140%" height="160%">
+  <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#C4148F" flood-opacity="0.22"/>
+</filter>
+</defs>
+<g class="dash">
+<rect x="0" y="0" width="992" height="538" rx="14" fill="url(#frameg)"/>
+<rect x="7" y="7" width="978" height="524" rx="9" fill="#FFFFFF"/>
+<rect x="7" y="7" width="978" height="40" rx="8" fill="url(#bandg)"/>
+<text x="496.0" y="36" font-size="25" fill="#FFFFFF" text-anchor="middle" font-weight="700" font-family="Georgia, 'Times New Roman', serif" letter-spacing="0.5">Customer Behavior Dashboard</text>
+<rect x="18" y="56" width="132" height="472" rx="12" fill="#FFFFFF" stroke="#E24B9E" stroke-width="1.4" filter="url(#ds)"/>
+<g class="sg0"><text x="84.0" y="77" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Subscription Status</text><rect x="24" y="88" width="52" height="32" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="50.0" y="108.0" font-size="11.5" fill="#1F1F2E" text-anchor="middle" font-weight="600">No</text><rect x="84" y="88" width="52" height="32" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="110.0" y="108.0" font-size="11.5" fill="#1F1F2E" text-anchor="middle" font-weight="600">Yes</text></g>
+<g class="sg1"><text x="84.0" y="139" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Gender</text><rect x="24" y="150" width="52" height="32" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="50.0" y="170.0" font-size="10.5" fill="#1F1F2E" text-anchor="middle" font-weight="600">Female</text><rect x="84" y="150" width="52" height="32" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="110.0" y="170.0" font-size="10.5" fill="#1F1F2E" text-anchor="middle" font-weight="600">Male</text></g>
+<g class="sg2"><text x="84.0" y="199" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Category</text><rect x="24" y="208" width="112" height="28" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="80.0" y="226.0" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Accessories</text><rect x="24" y="244" width="112" height="28" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="80.0" y="262.0" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Clothing</text><rect x="24" y="280" width="112" height="28" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="80.0" y="298.0" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Footwear</text><rect x="24" y="316" width="112" height="28" rx="3" fill="#FFFFFF" stroke="#2E2E44" stroke-width="1.5"/><text x="80.0" y="334.0" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Outerwear</text></g>
+<g class="sg3"><text x="84.0" y="362" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Shipping Type</text><circle cx="32" cy="380" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="383.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">2-Day Shipping</text><circle cx="32" cy="402" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="405.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">Express</text><circle cx="32" cy="424" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="427.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">Free Shipping</text><circle cx="32" cy="446" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="449.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">Next Day Air</text><circle cx="32" cy="468" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="471.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">Standard</text><circle cx="32" cy="490" r="4.2" fill="#FFFFFF" stroke="#8A8A95" stroke-width="1.2"/><text x="41" y="493.6" font-size="10.5" fill="#1F1F2E" text-anchor="start">Store Pickup</text></g>
+<g class="cd0"><rect x="166" y="64" width="250" height="104" rx="10" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text class="cntA_0" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">0K</text><text class="cntA_1" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">0.5K</text><text class="cntA_2" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">1.1K</text><text class="cntA_3" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">1.6K</text><text class="cntA_4" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">2.2K</text><text class="cntA_5" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">2.7K</text><text class="cntA_6" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">3.3K</text><text class="cntA_7" x="291.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">3.9K</text><text x="291.0" y="152" font-size="13" fill="#1F1F2E" text-anchor="middle" font-weight="700">Number of customers</text></g>
+<g class="cd1"><rect x="440" y="64" width="256" height="104" rx="10" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text class="cntB_0" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$0.00</text><text class="cntB_1" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$6.64</text><text class="cntB_2" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$13.28</text><text class="cntB_3" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$19.92</text><text class="cntB_4" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$26.56</text><text class="cntB_5" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$33.20</text><text class="cntB_6" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$39.84</text><text class="cntB_7" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$46.48</text><text class="cntB_8" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$53.12</text><text class="cntB_9" x="568.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">$59.76</text><text x="568.0" y="152" font-size="13" fill="#1F1F2E" text-anchor="middle" font-weight="700">Average of purchase amount</text></g>
+<g class="cd2"><rect x="710" y="64" width="262" height="104" rx="10" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text class="cntC_0" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">0.00</text><text class="cntC_1" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">0.42</text><text class="cntC_2" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">0.83</text><text class="cntC_3" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">1.25</text><text class="cntC_4" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">1.66</text><text class="cntC_5" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">2.08</text><text class="cntC_6" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">2.50</text><text class="cntC_7" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">2.92</text><text class="cntC_8" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">3.33</text><text class="cntC_9" x="841.0" y="122" font-size="30" font-weight="700" fill="#DE219B" text-anchor="middle">3.75</text><text x="841.0" y="152" font-size="13" fill="#1F1F2E" text-anchor="middle" font-weight="700">Average Review Rating</text></g>
+<g class="cc0"><rect x="166" y="180" width="254" height="168" rx="9" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text x="178" y="202" font-size="11.5" fill="#C4148F" text-anchor="start" font-weight="700">% of Customer by Subscription Status</text></g>
+<path class="arcF" d="M280,241 A34,34 0 1 1 246.27,279.26" fill="none" stroke="#EF4FA9" stroke-width="22" pathLength="100"/>
+<path class="arcM" d="M246.27,279.26 A34,34 0 0 1 280,241" fill="none" stroke="#3E55B5" stroke-width="22" pathLength="100"/>
+<line x1="280.0" y1="251.5" x2="280.0" y2="230.5" stroke="#FFFFFF" stroke-width="1.6"/>
+<line x1="256.7" y1="277.9" x2="235.9" y2="280.6" stroke="#FFFFFF" stroke-width="1.6"/>
+<g class="dlab"><text x="216" y="228" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">Yes 27%</text><text x="352" y="314" font-size="11" fill="#1F1F2E" text-anchor="middle" font-weight="600">No 73%</text></g>
+<g class="cc1"><rect x="432" y="180" width="262" height="168" rx="9" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text x="444" y="202" font-size="11.5" fill="#C4148F" text-anchor="start" font-weight="700">Revenue by Category</text></g>
+<rect class="gbv rv0" x="461.0" y="230.0" width="40" height="102.0" fill="#7C2A61"/><rect class="gbv rv1" x="519.0" y="259.4" width="40" height="72.6" fill="#A75B90"/><rect class="gbv rv2" x="577.0" y="296.7" width="40" height="35.3" fill="#DC90C6"/><rect class="gbv rv3" x="635.0" y="313.4" width="40" height="18.6" fill="#F4C4E4"/><text class="rvl0" x="481.0" y="224.0" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">104K</text><text x="481.0" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Clothing</text><text class="rvl1" x="539.0" y="253.4" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">74K</text><text x="539.0" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Accessories</text><text class="rvl2" x="597.0" y="290.7" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">36K</text><text x="597.0" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Footwear</text><text class="rvl3" x="655.0" y="307.4" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">19K</text><text x="655.0" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Outerwear</text>
+<g class="cc2"><rect x="706" y="180" width="266" height="168" rx="9" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text x="718" y="202" font-size="11.5" fill="#C4148F" text-anchor="start" font-weight="700">Sales By Category</text></g>
+<rect class="gbv sv0" x="735.5" y="230.0" width="40" height="102.0" fill="#7C2A61"/><rect class="gbv sv1" x="794.5" y="259.2" width="40" height="72.8" fill="#A75B90"/><rect class="gbv sv2" x="853.5" y="296.8" width="40" height="35.2" fill="#DC90C6"/><rect class="gbv sv3" x="912.5" y="313.0" width="40" height="19.0" fill="#F4C4E4"/><text class="svl0" x="755.5" y="224.0" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">1737</text><text x="755.5" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Clothing</text><text class="svl1" x="814.5" y="253.2" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">1240</text><text x="814.5" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Accessories</text><text class="svl2" x="873.5" y="290.8" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">599</text><text x="873.5" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Footwear</text><text class="svl3" x="932.5" y="307.0" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="middle">324</text><text x="932.5" y="346" font-size="9" fill="#1F1F2E" text-anchor="middle">Outerwear</text>
+<g class="cc3"><rect x="166" y="356" width="394" height="172" rx="9" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text x="178" y="378" font-size="11.5" fill="#C4148F" text-anchor="start" font-weight="700">Revenue By Age Group</text></g>
+<text x="226" y="405.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Young Adult</text><rect class="gbh rh0" x="232" y="392.0" width="290.0" height="20" fill="#7C2A61" rx="1"/><text class="rhl0" x="528.0" y="405.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">62K</text><text x="226" y="439.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Middle-aged</text><rect class="gbh rh1" x="232" y="426.0" width="182.4" height="20" fill="#B0699B" rx="1"/><text class="rhl1" x="420.4" y="439.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">39K</text><text x="226" y="473.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Adult</text><rect class="gbh rh2" x="232" y="460.0" width="261.9" height="20" fill="#EFA9D7" rx="1"/><text class="rhl2" x="499.9" y="473.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">56K</text><text x="226" y="507.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Senior</text><rect class="gbh rh3" x="232" y="494.0" width="261.9" height="20" fill="#F3C1E2" rx="1"/><text class="rhl3" x="499.9" y="507.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">56K</text>
+<g class="cc4"><rect x="576" y="356" width="396" height="172" rx="9" fill="#FFFFFF" stroke="#F0B7DC" stroke-width="1.2" filter="url(#ds)"/><text x="588" y="378" font-size="11.5" fill="#C4148F" text-anchor="start" font-weight="700">Sales By Age Group</text></g>
+<text x="636" y="405.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Young Adult</text><rect class="gbh sh0" x="642" y="392.0" width="278.0" height="20" fill="#7C2A61" rx="1"/><text class="shl0" x="926.0" y="405.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">1028</text><text x="636" y="439.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Middle-aged</text><rect class="gbh sh1" x="642" y="426.0" width="266.6" height="20" fill="#B0699B" rx="1"/><text class="shl1" x="914.6" y="439.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">986</text><text x="636" y="473.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Senior</text><rect class="gbh sh2" x="642" y="460.0" width="255.3" height="20" fill="#EFA9D7" rx="1"/><text class="shl2" x="903.3" y="473.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">944</text><text x="636" y="507.5" font-size="10.5" fill="#1F1F2E" text-anchor="end">Adult</text><rect class="gbh sh3" x="642" y="494.0" width="254.7" height="20" fill="#F3C1E2" rx="1"/><text class="shl3" x="902.7" y="507.5" font-size="10" font-weight="700" fill="#1F1F2E" text-anchor="start">942</text>
+</g>
+<g class="spop"><circle cx="496.0" cy="269.0" r="15" fill="none" stroke="#F5BDE3" stroke-width="4.5"/><circle cx="496.0" cy="269.0" r="15" fill="none" stroke="#DE219B" stroke-width="4.5" pathLength="100" stroke-dasharray="70 30" stroke-linecap="round"/></g>
+</svg>
