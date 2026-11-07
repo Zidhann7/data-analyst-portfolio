@@ -2,7 +2,7 @@
    Add to your page with:  <script src="touch-effects.js" defer></script>  (just before </body>) */
 (function(){
   var st=document.createElement('style');
-  st.textContent="/* ===== Touch (phone) animations: finger glow, tap ripple, scroll progress ===== */\n  .touch-glow,.touch-ripple{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;}\n  .touch-glow{width:200px;height:200px;margin:-100px 0 0 -100px;z-index:399;opacity:0;transition:opacity .3s ease;will-change:transform,opacity;\n    background:radial-gradient(circle,rgba(90,110,255,.5),rgba(110,100,255,.2) 42%,transparent 70%);}\n  .touch-glow.on{opacity:1;}\n  .touch-ripple{width:120px;height:120px;margin:-60px 0 0 -60px;z-index:400;transform:scale(.2);opacity:1;border:2px solid rgba(81,89,217,.75);\n    background:radial-gradient(circle,rgba(90,110,255,.35),transparent 70%);box-shadow:0 0 22px rgba(90,110,255,.45);animation:touchRipple .9s cubic-bezier(.22,1,.36,1) forwards;}\n  .touch-ripple.r2{border-color:rgba(146,112,216,.7);animation-delay:.12s;animation-duration:1.1s;}\n  @keyframes touchRipple{to{transform:scale(2.4);opacity:0;}}\n  .touch-dot{position:fixed;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;pointer-events:none;z-index:398;\n    background:radial-gradient(circle,var(--tc,#5159D9) 25%,transparent 72%);box-shadow:0 0 12px var(--tc,#5159D9);animation:touchDot .9s ease-out forwards;}\n  @keyframes touchDot{from{transform:scale(1);opacity:.95;}to{transform:translateY(-14px) scale(.2);opacity:0;}}\n  .scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:500;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);\n    background:linear-gradient(90deg,#4B54C9,#6488E8,#9270D8);box-shadow:0 0 10px rgba(81,89,217,.5);}\n  .fx.touch-on{translate:0 -3px;border-color:rgba(75,84,201,.4);box-shadow:0 18px 40px rgba(41,57,255,.16);}\n  .fx.touch-on::after{opacity:1;}\n  .fx.touch-on::before{opacity:1;animation:fxSweep 1s ease forwards;}\n  .pcard.in.touch-on{transform:translateY(-4px);border-color:rgba(75,84,201,.45);box-shadow:0 20px 44px rgba(41,57,255,.18);}\n  .pcard.touch-on::after{opacity:1;}\n  .pcard.touch-on::before{opacity:1;animation:cardSweep 1s ease forwards;}\n  .approach-step.touch-on,.tk-tile.touch-on .tk-ico{border-color:rgba(75,84,201,.4);box-shadow:0 16px 34px rgba(41,57,255,.16);}\n  .tk-tile.touch-on .tk-ico{transform:translateY(-4px) scale(1.06);}\n  @media(prefers-reduced-motion:reduce){.touch-glow,.touch-ripple,.touch-dot,.scroll-progress{display:none;}}\n";
+  st.textContent="/* ===== Touch (phone) animations: finger glow, tap ripple, scroll progress ===== */\n  .touch-glow,.touch-ripple{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;}\n  .touch-glow{width:120px;height:120px;margin:-60px 0 0 -60px;z-index:399;opacity:0;transition:opacity .45s ease;will-change:transform,opacity;\n    background:radial-gradient(circle,rgba(90,110,255,.36),rgba(110,100,255,.14) 45%,transparent 70%);}\n  .touch-glow.on{opacity:1;}\n  .touch-ripple{width:80px;height:80px;margin:-40px 0 0 -40px;z-index:400;transform:scale(.25);opacity:.9;border:1.5px solid rgba(81,89,217,.55);\n    background:radial-gradient(circle,rgba(90,110,255,.22),transparent 70%);box-shadow:0 0 14px rgba(90,110,255,.28);animation:touchRipple 1.1s cubic-bezier(.22,1,.36,1) forwards;}\n  .touch-ripple.r2{border-color:rgba(146,112,216,.45);animation-delay:.15s;animation-duration:1.3s;}\n  @keyframes touchRipple{to{transform:scale(1.9);opacity:0;}}\n  .touch-dot{position:fixed;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;pointer-events:none;z-index:398;\n    background:radial-gradient(circle,var(--tc,#5159D9) 25%,transparent 72%);box-shadow:0 0 8px var(--tc,#5159D9);animation:touchDot 1.1s cubic-bezier(.22,1,.36,1) forwards;}\n  @keyframes touchDot{from{transform:scale(1);opacity:.8;}to{transform:translateY(-10px) scale(.2);opacity:0;}}\n  .scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:500;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);\n    background:linear-gradient(90deg,#4B54C9,#6488E8,#9270D8);box-shadow:0 0 10px rgba(81,89,217,.5);}\n  .fx.touch-on{translate:0 -3px;border-color:rgba(75,84,201,.4);box-shadow:0 18px 40px rgba(41,57,255,.16);}\n  .fx.touch-on::after{opacity:1;}\n  .fx.touch-on::before{opacity:1;animation:fxSweep 1s ease forwards;}\n  .pcard.in.touch-on{transform:translateY(-4px);border-color:rgba(75,84,201,.45);box-shadow:0 20px 44px rgba(41,57,255,.18);}\n  .pcard.touch-on::after{opacity:1;}\n  .pcard.touch-on::before{opacity:1;animation:cardSweep 1s ease forwards;}\n  .approach-step.touch-on,.tk-tile.touch-on .tk-ico{border-color:rgba(75,84,201,.4);box-shadow:0 16px 34px rgba(41,57,255,.16);}\n  .tk-tile.touch-on .tk-ico{transform:translateY(-4px) scale(1.06);}\n  @media(prefers-reduced-motion:reduce){.touch-glow,.touch-ripple,.touch-dot,.scroll-progress{display:none;}}\n";
   document.head.appendChild(st);
 })();
 /* ===== Phone / touch animations =====
@@ -17,7 +17,7 @@
   var bar=document.createElement('div');bar.className='scroll-progress';bar.setAttribute('aria-hidden','true');
   document.body.appendChild(glow);document.body.appendChild(bar);
 
-  var tx=0,ty=0,ticking=false,active=null,hideT=0,lx=-999,ly=-999;
+  var tx=0,ty=0,gx=0,gy=0,ticking=false,active=null,hideT=0,lx=-999,ly=-999;
   var COLORS=['#5159D9','#6488E8','#9270D8','#B4A0EE'],ci=0;
   function ripple(x,y){
     ['','r2'].forEach(function(c){
@@ -38,9 +38,11 @@
     active=el;if(active)active.classList.add('touch-on');
   }
   function frame(){
-    ticking=false;
-    glow.style.transform='translate3d('+tx+'px,'+ty+'px,0)';
-    if(active){var r=active.getBoundingClientRect();active.style.setProperty('--mx',(tx-r.left)+'px');active.style.setProperty('--my',(ty-r.top)+'px');}
+    // glow eases toward the finger for a smooth, soft follow
+    gx+=(tx-gx)*.22;gy+=(ty-gy)*.22;
+    glow.style.transform='translate3d('+gx.toFixed(1)+'px,'+gy.toFixed(1)+'px,0)';
+    if(active){var r=active.getBoundingClientRect();active.style.setProperty('--mx',(gx-r.left)+'px');active.style.setProperty('--my',(gy-r.top)+'px');}
+    if(Math.abs(tx-gx)+Math.abs(ty-gy)>.6){requestAnimationFrame(frame);}else{ticking=false;}
   }
   function track(e){
     var t=e.touches&&e.touches[0];if(!t)return;
@@ -51,13 +53,13 @@
     track(e);
     clearTimeout(hideT);
     glow.classList.add('on');
-    ripple(tx,ty);lx=tx;ly=ty;
+    gx=tx;gy=ty;ripple(tx,ty);lx=tx;ly=ty;
     setActive(e.target.closest?e.target.closest(SEL):null);
     frame();
   },{passive:true,capture:true});
   document.addEventListener('touchmove',function(e){
     track(e);
-    if(Math.hypot(tx-lx,ty-ly)>26){lx=tx;ly=ty;dot(tx,ty);}
+    if(Math.hypot(tx-lx,ty-ly)>34){lx=tx;ly=ty;dot(tx,ty);}
     var t=e.touches[0],el=document.elementFromPoint(t.clientX,t.clientY);
     setActive(el&&el.closest?el.closest(SEL):null);
   },{passive:true,capture:true});
