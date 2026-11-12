@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Excel VBA Automation — Animated Sales Dashboard</title>
+  <desc id="desc">An animated SVG showing a mouse pointer moving to the Refresh Dashboard button, clicking it, and revealing a purple sales analytics dashboard with KPI cards, six charts, and a Top 5 orders table.</desc>
+  <defs>
+    <linearGradient id="pageBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f6fc"/><stop offset="1" stop-color="#ece8f5"/></linearGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#24143f"/><stop offset="0.55" stop-color="#40216b"/><stop offset="1" stop-color="#59318b"/></linearGradient>
+    <linearGradient id="buttonGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f0eafd"/></linearGradient>
+    <linearGradient id="purpleBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a783e8"/><stop offset="1" stop-color="#6841a8"/></linearGradient>
+    <linearGradient id="pinkBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6a1db"/><stop offset="1" stop-color="#ad5fae"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#281943" flood-opacity="0.12"/></filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#281943" flood-opacity="0.08"/></filter>
+    <style><![CDATA[
+      text{font-family:Inter,Segoe UI,Arial,sans-serif}
+      .dashboard{opacity:0;transform:translateY(18px);animation:dashboardReveal 1s cubic-bezier(.2,.75,.25,1) 2.55s forwards}
+      .emptyState{opacity:1;animation:emptyOut .35s ease 2.42s forwards}
+      .refreshing{opacity:0;animation:refreshFlash .7s ease 1.75s forwards}
+      .successBadge{opacity:0;animation:successIn .5s ease 3.35s forwards}
+      .cursor{offset-path:path('M 960 300 C 1090 290 1190 200 1300 132 C 1340 116 1370 116 1400 116');offset-distance:0%;animation:cursorMove 1.65s cubic-bezier(.35,.05,.2,1) forwards;filter:url(#softShadow)}
+      .clickRing{opacity:0;transform-origin:1400px 116px;animation:ringPop .55s ease 1.62s forwards}
+      .buttonFace{transform-box:fill-box;transform-origin:center;animation:buttonPress .32s ease 1.62s}
+      .animBar{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:barRise .65s cubic-bezier(.2,.7,.2,1) 3.05s forwards}
+      .animBar.d2{animation-delay:3.15s}.animBar.d3{animation-delay:3.25s}.animBar.d4{animation-delay:3.35s}.animBar.d5{animation-delay:3.45s}
+      .drawLine{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 1s ease 3.05s forwards}
+      @keyframes cursorMove{0%{offset-distance:0%}100%{offset-distance:100%}}
+      @keyframes ringPop{0%{opacity:0;transform:scale(.25)}25%{opacity:.85}100%{opacity:0;transform:scale(2.2)}}
+      @keyframes buttonPress{0%,100%{transform:scale(1)}45%{transform:scale(.96)}}
+      @keyframes emptyOut{to{opacity:0;visibility:hidden}}
+      @keyframes refreshFlash{0%{opacity:0}20%{opacity:1}85%{opacity:1}100%{opacity:0}}
+      @keyframes dashboardReveal{to{opacity:1;transform:translateY(0)}}
+      @keyframes successIn{to{opacity:1}}
+      @keyframes barRise{to{transform:scaleY(1)}}
+      @keyframes draw{to{stroke-dashoffset:0}}
+      @media(prefers-reduced-motion:reduce){.cursor,.clickRing,.buttonFace,.dashboard,.emptyState,.refreshing,.successBadge,.animBar,.drawLine{animation:none!important;opacity:1!important;transform:none!important;stroke-dashoffset:0!important}}
+    ]]></style>
+  </defs>
+
+  <!-- canvas and application frame -->
+  <rect width="1600" height="1120" fill="url(#pageBg)"/>
+  <circle cx="1450" cy="150" r="220" fill="#ded2f1" opacity=".22"/>
+  <circle cx="110" cy="1020" r="260" fill="#d9c9ee" opacity=".18"/>
+  <rect x="42" y="35" width="1516" height="1050" rx="24" fill="#fff" filter="url(#shadow)"/>
+  <rect x="42" y="35" width="1516" height="1050" rx="24" fill="none" stroke="#ddd6e9"/>
+
+  <!-- app header -->
+  <path d="M66 35 H1534 Q1558 35 1558 59 V158 H42 V59 Q42 35 66 35Z" fill="url(#headerGrad)"/>
+  <g transform="translate(82 72)">
+    <rect x="0" y="0" width="43" height="43" rx="12" fill="#ffffff" opacity=".14" stroke="#ffffff" stroke-opacity=".25"/>
+    <path d="M10 29V14h6v15m5 0V9h6v20m5 0V18h6v11" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <text x="58" y="17" font-size="12" font-weight="700" letter-spacing="2.2" fill="#d9c9f4">EXCEL VBA AUTOMATION</text>
+    <text x="58" y="43" font-size="25" font-weight="750" fill="#fff">Sales Performance Dashboard</text>
+  </g>
+  <g transform="translate(1190 91)">
+    <rect class="buttonFace" x="0" y="0" width="230" height="52" rx="13" fill="url(#buttonGrad)" stroke="#c9b6e8" stroke-width="1.4" filter="url(#softShadow)"/>
+    <path d="M22 17a10 10 0 1 1-2 12" stroke="#6841a8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M17 16v7h7" stroke="#6841a8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="119" y="32" text-anchor="middle" fill="#4c2b77" font-size="14" font-weight="750">Refresh Dashboard</text>
+  </g>
+  <g class="successBadge" transform="translate(1435 103)">
+    <circle cx="11" cy="11" r="11" fill="#d9f6e9"/>
+    <path d="M5 11l4 4 8-9" fill="none" stroke="#21865c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Initial state: appears before the click -->
+  <g class="emptyState">
+    <rect x="82" y="190" width="1436" height="820" rx="20" fill="#faf9fd" stroke="#e7e1f0" stroke-dasharray="8 8"/>
+    <g transform="translate(800 515)">
+      <circle cx="0" cy="-65" r="56" fill="#eee7f8"/>
+      <rect x="-27" y="-88" width="54" height="42" rx="7" fill="#fff" stroke="#8b6ab9" stroke-width="2"/>
+      <path d="M-17 -75h34M-17 -65h22M-17 -55h13" stroke="#9b80c1" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-10 -32l10 10 10-10" fill="none" stroke="#8058b4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="32" text-anchor="middle" font-size="25" font-weight="700" fill="#493166">Your dashboard is ready to build</text>
+      <text x="0" y="67" text-anchor="middle" font-size="15" fill="#877a99">Click Refresh Dashboard to generate KPIs, charts and sales summaries</text>
+      <text x="0" y="112" text-anchor="middle" font-size="12" font-weight="650" letter-spacing="1.6" fill="#a08fb8">DATASET  →  PIVOTTABLES  →  DASHBOARD</text>
+    </g>
+  </g>
+
+  <!-- transient refresh status -->
+  <g class="refreshing" transform="translate(650 530)">
+    <rect x="0" y="0" width="300" height="66" rx="15" fill="#2d1949" filter="url(#shadow)"/>
+    <circle cx="32" cy="33" r="12" fill="none" stroke="#cbb5ef" stroke-width="3" stroke-dasharray="48 24">
+      <animateTransform attributeName="transform" type="rotate" from="0 32 33" to="360 32 33" dur=".8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="58" y="29" font-size="14" font-weight="700" fill="#fff">Refreshing PivotTables…</text>
+    <text x="58" y="48" font-size="11" fill="#d8c9ed">Rebuilding dashboard visuals</text>
+  </g>
+
+  <!-- Dashboard revealed after the button click -->
+  <g class="dashboard">
+    <!-- KPI cards -->
+    <g transform="translate(82 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#7650b0"/></g>
+      <circle cx="29" cy="30" r="15" fill="#eee7f8"/><path d="M22 34h14M25 29h11M28 24h8" stroke="#7650b0" stroke-width="2" stroke-linecap="round"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">TOTAL SALES</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">₹ —</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Sum of Sales_Amount_INR</text>
+    </g>
+    <g transform="translate(324 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#9a66c7"/></g>
+      <circle cx="29" cy="30" r="15" fill="#f4e9f5"/><path d="M21 33l6-6 4 3 7-9" stroke="#a45bb1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">TOTAL PROFIT</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">₹ —</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Sum of Profit_INR</text>
+    </g>
+    <g transform="translate(566 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#6c68bd"/></g>
+      <circle cx="29" cy="30" r="15" fill="#ecebfa"/><circle cx="29" cy="26" r="5" fill="none" stroke="#6c68bd" stroke-width="2"/><path d="M19 39c2-7 18-7 20 0" fill="none" stroke="#6c68bd" stroke-width="2"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">TOTAL ORDERS</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">—</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Distinct Order_ID</text>
+    </g>
+    <g transform="translate(808 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#b06bb8"/></g>
+      <circle cx="29" cy="30" r="15" fill="#f8eafa"/><circle cx="25" cy="26" r="4" fill="none" stroke="#ad65ae" stroke-width="2"/><circle cx="34" cy="28" r="3" fill="none" stroke="#ad65ae" stroke-width="2"/><path d="M18 39c1-6 12-7 14 0m0-3c3-4 10-3 11 2" fill="none" stroke="#ad65ae" stroke-width="2"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">TOTAL CUSTOMERS</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">—</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Distinct Customer_ID</text>
+    </g>
+    <g transform="translate(1050 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#7a84c6"/></g>
+      <circle cx="29" cy="30" r="15" fill="#eceefa"/><path d="M20 23h18v15H20zM24 20v6m10-6v6m-7 7h4" stroke="#6878b8" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">QUANTITY SOLD</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">—</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Sum of Quantity</text>
+    </g>
+    <g transform="translate(1292 187)">
+      <g filter="url(#softShadow)"><rect width="226" height="112" rx="15" fill="#fff" stroke="#e7e0f0"/><rect width="5" height="112" rx="2.5" fill="#c07ab2"/></g>
+      <circle cx="29" cy="30" r="15" fill="#f8ebf4"/><path d="M29 19v11l8 5" stroke="#b56b9f" stroke-width="2.3" stroke-linecap="round" fill="none"/><circle cx="29" cy="30" r="10" fill="none" stroke="#b56b9f" stroke-width="2"/>
+      <text x="54" y="34" fill="#756982" font-size="12" font-weight="650">PROFIT MARGIN</text>
+      <text x="23" y="79" font-size="27" font-weight="750" fill="#302044">—%</text>
+      <text x="23" y="98" font-size="10" fill="#9a90a4">Total Profit ÷ Total Sales</text>
+    </g>
+
+    <!-- Chart panel 1: trend -->
+    <g transform="translate(82 322)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Monthly Sales &amp; Profit Trend</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Order_Date · month / year</text>
+      <g stroke="#eee9f4" stroke-width="1"><path d="M52 78H438M52 117H438M52 156H438M52 195H438"/></g>
+      <g fill="#9b91a7" font-size="9"><text x="20" y="81">High</text><text x="25" y="120"> </text><text x="23" y="198">Low</text></g>
+      <path d="M55 170 C84 157 92 132 119 143 S162 165 186 126 S228 119 250 132 S289 88 316 103 S353 120 378 84 S415 95 438 69" fill="none" stroke="#7650b0" stroke-width="3" stroke-linecap="round" class="drawLine"/>
+      <path d="M55 184 C83 173 93 159 119 168 S161 177 186 157 S225 151 250 160 S291 135 316 145 S355 151 378 128 S415 137 438 119" fill="none" stroke="#d38ac2" stroke-width="2.5" stroke-linecap="round" class="drawLine"/>
+      <g fill="#7650b0"><circle cx="119" cy="143" r="3.5"/><circle cx="186" cy="126" r="3.5"/><circle cx="250" cy="132" r="3.5"/><circle cx="316" cy="103" r="3.5"/><circle cx="378" cy="84" r="3.5"/></g>
+      <g fill="#9b91a7" font-size="9" text-anchor="middle"><text x="55" y="212">Jan</text><text x="119" y="212">Mar</text><text x="186" y="212">May</text><text x="250" y="212">Jul</text><text x="316" y="212">Sep</text><text x="378" y="212">Nov</text></g>
+      <g transform="translate(300 29)" font-size="9"><circle cx="0" cy="0" r="4" fill="#7650b0"/><text x="9" y="3" fill="#81768d">Sales</text><circle cx="58" cy="0" r="4" fill="#d38ac2"/><text x="67" y="3" fill="#81768d">Profit</text></g>
+    </g>
+
+    <!-- Chart panel 2: segment doughnut -->
+    <g transform="translate(569 322)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Sales by Customer Segment</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Share of total sales</text>
+      <g transform="translate(155 135) rotate(-90)"><circle r="62" fill="none" stroke="#f0edf5" stroke-width="22"/><circle r="62" fill="none" stroke="#7650b0" stroke-width="22" stroke-dasharray="150 240"/><circle r="62" fill="none" stroke="#c58acb" stroke-width="22" stroke-dasharray="115 275" stroke-dashoffset="-155"/><circle r="62" fill="none" stroke="#e6b2d9" stroke-width="22" stroke-dasharray="95 295" stroke-dashoffset="-275"/></g>
+      <text x="155" y="132" text-anchor="middle" font-size="12" font-weight="700" fill="#3b2b50">Segment</text><text x="155" y="151" text-anchor="middle" font-size="9" fill="#968aa3">Breakdown</text>
+      <g font-size="11" fill="#62556f"><circle cx="270" cy="92" r="5" fill="#7650b0"/><text x="283" y="96">Consumer</text><circle cx="270" cy="124" r="5" fill="#c58acb"/><text x="283" y="128">Corporate</text><circle cx="270" cy="156" r="5" fill="#e6b2d9"/><text x="283" y="160">Home Office</text></g>
+      <text x="270" y="190" font-size="9" fill="#a096ac">Illustrative chart layout</text>
+    </g>
+
+    <!-- Chart panel 3: category bars -->
+    <g transform="translate(1056 322)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Category-wise Sales</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Sales_Amount_INR · ranked view</text>
+      <g font-size="10" fill="#746982"><text x="20" y="85">Technology</text><text x="20" y="126">Furniture</text><text x="20" y="167">Office Supplies</text></g>
+      <g fill="#f0edf5"><rect x="115" y="68" width="310" height="22" rx="6"/><rect x="115" y="109" width="310" height="22" rx="6"/><rect x="115" y="150" width="310" height="22" rx="6"/></g>
+      <rect class="animBar" x="115" y="68" width="250" height="22" rx="6" fill="url(#purpleBar)"/><rect class="animBar d2" x="115" y="109" width="205" height="22" rx="6" fill="url(#purpleBar)"/><rect class="animBar d3" x="115" y="150" width="165" height="22" rx="6" fill="url(#purpleBar)"/>
+      <text x="20" y="202" font-size="9" fill="#a096ac">Illustrative bar lengths · refresh to populate actual values</text>
+    </g>
+
+    <!-- Chart panel 4: region -->
+    <g transform="translate(82 560)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Region-wise Sales &amp; Profit</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Regional comparison</text>
+      <g stroke="#eee9f4"><path d="M48 77H438M48 116H438M48 155H438M48 194H438"/></g>
+      <g transform="translate(72 0)"><rect class="animBar" x="0" y="108" width="28" height="86" rx="4" fill="#7650b0"/><rect class="animBar d2" x="32" y="143" width="22" height="51" rx="4" fill="#d38ac2"/><rect class="animBar d2" x="88" y="91" width="28" height="103" rx="4" fill="#7650b0"/><rect class="animBar d3" x="120" y="135" width="22" height="59" rx="4" fill="#d38ac2"/><rect class="animBar d3" x="176" y="119" width="28" height="75" rx="4" fill="#7650b0"/><rect class="animBar d4" x="208" y="154" width="22" height="40" rx="4" fill="#d38ac2"/><rect class="animBar d4" x="264" y="81" width="28" height="113" rx="4" fill="#7650b0"/><rect class="animBar d5" x="296" y="128" width="22" height="66" rx="4" fill="#d38ac2"/></g>
+      <g fill="#8c8299" font-size="9" text-anchor="middle"><text x="98" y="212">Central</text><text x="214" y="212">East</text><text x="330" y="212">North</text><text x="446" y="212">West</text></g>
+    </g>
+
+    <!-- Chart panel 5: profit by category -->
+    <g transform="translate(569 560)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Profit by Product Category</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Profit_INR · category comparison</text>
+      <g stroke="#eee9f4"><path d="M48 78H438M48 116H438M48 154H438M48 192H438"/></g>
+      <g transform="translate(92 0)"><rect class="animBar" x="0" y="109" width="58" height="83" rx="6" fill="#8d66c2"/><rect class="animBar d2" x="86" y="82" width="58" height="110" rx="6" fill="#7650b0"/><rect class="animBar d3" x="172" y="132" width="58" height="60" rx="6" fill="#bc88cc"/><rect class="animBar d4" x="258" y="101" width="58" height="91" rx="6" fill="#a06fbd"/></g>
+      <g fill="#8c8299" font-size="9" text-anchor="middle"><text x="121" y="211">Tech</text><text x="207" y="211">Furniture</text><text x="293" y="211">Office</text><text x="379" y="211">Other</text></g>
+    </g>
+
+    <!-- Chart panel 6: discount impact -->
+    <g transform="translate(1056 560)" filter="url(#softShadow)">
+      <rect width="462" height="222" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="20" y="29" font-size="14" font-weight="750" fill="#34234a">Discount Impact Analysis</text>
+      <text x="20" y="47" font-size="10" fill="#978ca4">Discount_Pct vs sales and margin</text>
+      <g stroke="#eee9f4"><path d="M48 78H438M48 116H438M48 154H438M48 192H438"/></g>
+      <g fill="#d8c6ee"><rect class="animBar" x="68" y="137" width="32" height="55" rx="4"/><rect class="animBar d2" x="132" y="116" width="32" height="76" rx="4"/><rect class="animBar d3" x="196" y="91" width="32" height="101" rx="4"/><rect class="animBar d4" x="260" y="122" width="32" height="70" rx="4"/><rect class="animBar d5" x="324" y="151" width="32" height="41" rx="4"/></g>
+      <path d="M84 102L148 112L212 130L276 143L340 160" fill="none" stroke="#b15eaa" stroke-width="3" stroke-linecap="round" class="drawLine"/>
+      <g fill="#b15eaa"><circle cx="84" cy="102" r="4"/><circle cx="148" cy="112" r="4"/><circle cx="212" cy="130" r="4"/><circle cx="276" cy="143" r="4"/><circle cx="340" cy="160" r="4"/></g>
+      <g fill="#8c8299" font-size="9" text-anchor="middle"><text x="84" y="211">0%</text><text x="148" y="211">5%</text><text x="212" y="211">10%</text><text x="276" y="211">15%</text><text x="340" y="211">20%</text></g>
+    </g>
+
+    <!-- Top 5 orders section -->
+    <g transform="translate(82 798)" filter="url(#softShadow)">
+      <rect width="1436" height="220" rx="15" fill="#fff" stroke="#e9e3f1"/>
+      <text x="22" y="31" font-size="15" font-weight="750" fill="#34234a">Top 5 Performing Orders</text>
+      <text x="22" y="50" font-size="10" fill="#978ca4">Ranked by Sales_Amount_INR · values populate from PivotTables after refresh</text>
+      <rect x="20" y="67" width="1396" height="31" rx="6" fill="#4b2a70"/>
+      <g font-size="10" font-weight="700" fill="#fff"><text x="42" y="87">RANK</text><text x="150" y="87">ORDER ID</text><text x="410" y="87">CUSTOMER</text><text x="710" y="87">PRODUCT</text><text x="1010" y="87">REGION</text><text x="1182" y="87">SALES (₹)</text><text x="1320" y="87">PROFIT (₹)</text></g>
+      <g font-size="11" fill="#62556f">
+        <rect x="20" y="104" width="1396" height="22" rx="4" fill="#f7f4fb"/><text x="48" y="119">01</text><text x="150" y="119">—</text><text x="410" y="119">—</text><text x="710" y="119">—</text><text x="1010" y="119">—</text><text x="1182" y="119">—</text><text x="1320" y="119">—</text>
+        <text x="48" y="145">02</text><text x="150" y="145">—</text><text x="410" y="145">—</text><text x="710" y="145">—</text><text x="1010" y="145">—</text><text x="1182" y="145">—</text><text x="1320" y="145">—</text>
+        <rect x="20" y="153" width="1396" height="22" rx="4" fill="#f7f4fb"/><text x="48" y="168">03</text><text x="150" y="168">—</text><text x="410" y="168">—</text><text x="710" y="168">—</text><text x="1010" y="168">—</text><text x="1182" y="168">—</text><text x="1320" y="168">—</text>
+        <text x="48" y="194">04</text><text x="150" y="194">—</text><text x="410" y="194">—</text><text x="710" y="194">—</text><text x="1010" y="194">—</text><text x="1182" y="194">—</text><text x="1320" y="194">—</text>
+      </g>
+    </g>
+
+    <text x="82" y="1047" font-size="10" fill="#a096ac">EXCEL VBA AUTOMATION  •  DATASET → PIVOT → DASHBOARD</text>
+    <text x="1518" y="1047" text-anchor="end" font-size="10" fill="#a096ac">Illustrative portfolio preview · refresh to populate actual figures</text>
+  </g>
+
+  <!-- Mouse pointer travels to and clicks Refresh Dashboard -->
+  <g class="cursor">
+    <path d="M0 0 L0 38 L10 28 L20 47 L27 43 L17 24 L34 23 Z" fill="#fff" stroke="#241638" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M5 7L5 29L11 23L20 40L23 38L14 21L27 20Z" fill="#f6f1ff" opacity=".9"/>
+  </g>
+  <circle class="clickRing" cx="1400" cy="116" r="18" fill="none" stroke="#ffffff" stroke-width="3"/>
+</svg>
