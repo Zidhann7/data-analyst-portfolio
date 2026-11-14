@@ -1691,7 +1691,7 @@ const contactConfig = {
   toEmail: "zidhann7@gmail.com",
   /* Paste your Google Apps Script Web App URL here (ends with /exec) to get nicely formatted
      HTML emails in your Gmail. Setup steps are inside Code.gs. Leave "" to use the FormSubmit fallback. */
-  appsScriptUrl: ""
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbyYn_uB9tp9lxZoiO0xXNBpXggANT0nLaDvplkkIDmDGQuIAzKtMRKzVd-ioFDJMX3XUw/exec"
 };
 
 (function(){
@@ -1726,13 +1726,20 @@ const contactConfig = {
     sending=true;btn.disabled=true;label.textContent='Sending...';say('');
     var useScript=/^https:\/\/script\.google\.com\//.test(contactConfig.appsScriptUrl||'');
     var req;
-    if(useScript){
+    if(location.protocol==='file:'){
+      req=Promise.reject(Object.assign(new Error('file'),{code:'file'}));
+    }else if(useScript){
       // Google Apps Script web app -> HTML email sent from your own Gmail
-      req=fetch(contactConfig.appsScriptUrl,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
+      var url=contactConfig.appsScriptUrl,payload=JSON.stringify(d);
+      req=fetch(url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload})
         .then(function(r){return r.json();})
         .then(function(j){
           if(j&&j.ok)return;
           var err=new Error(j&&j.error||'failed');err.code=j&&j.error;throw err;
+        },function(netErr){
+          // The browser could not read the reply (blocked/redirect). Try once more without reading it.
+          // The script ignores a repeat within 30 seconds, so this can never send two emails.
+          return fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:payload});
         });
     }else{
       req=fetch('https://formsubmit.co/ajax/'+contactConfig.toEmail,{
@@ -1742,13 +1749,18 @@ const contactConfig = {
           _subject:'Portfolio message: '+d.subject,_template:'box',_captcha:'false'})
       }).then(function(r){return r.json().catch(function(){return {};}).then(function(j){
         if(r.ok&&(j.success===true||j.success==='true'))return;
-        throw new Error(j&&j.message?j.message:'failed');
+        var m=(j&&j.message)?String(j.message):'';
+        var err=new Error(m||'failed');err.code=/activat/i.test(m)?'activate':'formsubmit';throw err;
       });});
     }
     req.then(function(){say('Thank you! Your message has been sent.','ok');form.reset();})
     .catch(function(err){
+      if(window.console)console.warn('Contact form error:',err);
+      var why='';
       if(err&&err.code==='wait'){say('Please wait a few seconds before sending another message.','err');return;}
-      say('Sorry, the message could not be sent. <a href="'+mailtoHref(d)+'">Click here to email me directly</a>.','err',true);
+      if(err&&err.code==='file')why=' (Sending only works on the live website, not when the file is opened from your computer.)';
+      else if(err&&err.code==='activate')why=' (The email service still needs its one-time activation.)';
+      say('Sorry, the message could not be sent.'+why+' <a href="'+mailtoHref(d)+'">Click here to email me directly</a>.','err',true);
     })
     .then(function(){sending=false;btn.disabled=false;label.textContent='Send Message';});
   });
